@@ -17,3 +17,6 @@ class User(db.Model):
         title = db.Column(db.String(200), nullable=False)
         Title = db.Column(db.Text, nullable=False)
         post_image = db.Column(db.String(200), nullable=True)
+
+        # Foreign key to link to User
+        user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)

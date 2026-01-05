@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from models import db, User, Post
 
 app = Flask(__name__)
 
