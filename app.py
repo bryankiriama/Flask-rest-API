@@ -1,7 +1,12 @@
 from flask import Flask, jsonify
-from models import db, User, Post
+from models import *
+from flask_migrate import Migrate
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rest-api.db'
+
+Migrate(app, db)
+db.init_app(app)
 
 @app.route('/')
 def index():
